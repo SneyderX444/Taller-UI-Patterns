@@ -1,0 +1,45 @@
+--- 1. PATRÓN DE NAVEGACIÓN (BREADCRUMBS + TABS) ---
+Ruta actual: Inicio
+Ruta actual: Inicio > Catálogo
+Ruta actual: Inicio > Catálogo > Servidor Principal
+Ruta actual: Inicio > Reservas > Laboratorio de Redes
+Ruta actual (clic en breadcrumb 'Reservas'): Inicio > Reservas
+
+--- 2. PATRÓN DE CONTENIDO Y ESTRUCTURA (PROGRESSIVE DISCLOSURE) ---
+[Vista Resumen] Servidor Principal · Estado: Activo
+[Usuario solicita ver detalles avanzados...]
+[Acordeón Desplegado] IP: 192.168.1.10 | Puerto: 8080 | RAM: 4GB/16GB
+
+--- 3. PATRÓN DE ENTRADA DE DATOS (FORGIVING FORMAT) ---
+Entrada del usuario: "+57 (310) 999-8877"
+Teléfono normalizado sin error: "3109998877"
+Entrada del usuario: "310 999 8877"
+Teléfono normalizado sin error: "3109998877"
+Entrada del usuario: "57-310-999-8877"
+Teléfono normalizado sin error: "3109998877"
+Entrada del usuario: "(310)9998877"
+Teléfono normalizado sin error: "3109998877"
+Fecha "5/11/2026" -> "2026-11-05"
+Fecha "05-11-26" -> "2026-11-05"
+
+--- 4. PATRÓN DE FEEDBACK Y ESTADO (COMPLETENESS METER) ---
+[Progreso: 0%] Campos listos: 0 de 3 (Falta: Equipo a reservar, Teléfono, Correo de contacto)
+[Progreso: 33%] Campos listos: 1 de 3 (Falta: Teléfono, Correo de contacto)
+[Progreso: 67%] Campos listos: 2 de 3 (Falta: Correo de contacto)
+Usuario ingresa correo: "estudiante@udistrital.edu.co"
+[Progreso: 100%] ¡Formulario completo!
+
+--- 5. LAZY REGISTRATION + TOAST ---
+(La reserva se armó sin iniciar sesión)
+Usuario intenta guardar sin haber iniciado sesión... usuarioActivo = false
+[Lazy Registration] Avance guardado en borrador temporal. Por favor cree su cuenta para finalizar.
+Borrador temporal conservado: true
+Usuario completa registro rápido -> Sesión activa = true
+Usuario intenta guardar... usuarioActivo = true
+[Toast de Estado] Reserva guardada exitosamente.
+
+--- EXTRA: CERO DARK PATTERNS (SALIDA EN UN SOLO PASO) ---
+Usuario solicita cancelar la reserva (1 paso):
+[Toast de Estado] Reserva cancelada.
+Usuario solicita cerrar sesión (1 paso):
+[Toast de Estado] Sesión cerrada.
